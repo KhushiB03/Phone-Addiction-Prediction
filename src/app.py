@@ -4,7 +4,7 @@ import joblib
 
 
 # Load trained model
-model = joblib.load("addiction_model.pkl")
+model = joblib.load("src/addiction_model.pkl")
 
 
 # Page configuration
