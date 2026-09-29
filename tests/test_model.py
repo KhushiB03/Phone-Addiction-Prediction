@@ -3,13 +3,13 @@ import pandas as pd
 
 #test if model loads or not
 def test_model():
-    model = joblib.load("prediction/src/addiction_model.pkl")
+    model = joblib.load("src/addiction_model.pkl")
     #true if loads
     assert model is not None
 
 #does model predicts and classifies
 def test_model_prediction():
-    model = joblib.load("prediction/src/addiction_model.pkl")
+    model = joblib.load("src/addiction_model.pkl")
     input_data = pd.DataFrame([{
          "id": 1,
         "age": 21,
