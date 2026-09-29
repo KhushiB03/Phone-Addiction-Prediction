@@ -1,31 +1,49 @@
+# Name GitHub displays in the GitHub Actions tab
 name: Run Tests
 
+# Whenever someone pushes code to the main branch,
+# run the workflow.
 on:
   push:
     branches:
       - main
 
+  # If someone creates a pull request targeting main,
+  # run the tests too.
   pull_request:
     branches:
       - main
 
 jobs:
   test:
+
+    # Give me a temporary Ubuntu/Linux computer
+    # to run my tests.
     runs-on: ubuntu-latest
 
     steps:
+
+      # GitHub's machine initially doesn't have
+      # your project files.
+      # This downloads/checks out your repository
+      # into the GitHub Actions machine.
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Set up Python on the GitHub machine.
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          # Match the Python version you use
+          # locally/for deployment.
+          python-version: "3.11.9"
 
+      # Install all packages listed in requirements.txt
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Run our pytest test files.
       - name: Run tests
         run: pytest
