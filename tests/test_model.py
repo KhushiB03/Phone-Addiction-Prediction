@@ -13,8 +13,6 @@ def test_model_prediction():
     input_data = pd.DataFrame([{
          "id": 1,
         "age": 21,
-        "daily_screen_time_hours": 7.0,
-        "social_media_hours": 4.0,
         "gaming_hours": 2.0,
         "work_study_hours": 5.0,
         "sleep_hours": 6.0,
